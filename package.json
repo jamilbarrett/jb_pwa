@@ -4,9 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server:dev": "cd ../server && npm run dev",
+    "browser:dev": "cd ../client && npm run start",
+    "dev": "concurrently \"npm run server:dev\" \"npm run browser:dev\"",
+    "build": "cd ./client && npm run build",
+    "install": "concurrently \"cd client && npm install\" \"cd server && npm install\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd develop && cd server && node server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
 }
